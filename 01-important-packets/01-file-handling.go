@@ -17,4 +17,11 @@ func main() {
 	fmt.Printf("File created! length: %d bytes", length)
 
 	f.Close()
+
+	file, err := os.ReadFile("newfile.txt")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Print(string(file))
 }
