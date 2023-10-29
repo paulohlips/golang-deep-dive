@@ -49,4 +49,10 @@ func main() {
 
 		fmt.Println(string(buffer[:n]))
 	}
+
+	err = os.Remove(fileName)
+
+	if err != nil {
+		panic(err)
+	}
 }
