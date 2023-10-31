@@ -13,10 +13,14 @@ type Customer struct {
 func main() {
 	customer := Customer{Id: 1, Name: "James Bond"}
 
-	json, err := json.Marshal(customer)
+	res, err := json.Marshal(customer)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Print(string(json))
+	fmt.Println(string(res))
+
+	var newCustomer Customer
+	json.Unmarshal(res, &newCustomer)
+	println(newCustomer.Name)
 }
