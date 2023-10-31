@@ -39,5 +39,17 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Error while was unmarshalling response: %v", err)
 		}
 
+		file, err := os.Create("response.txt")
+		if err != nil {
+			fmt.Fprintf(os.Stdout, "Error while creating file: %v", err)
+		}
+
+		defer file.Close()
+
+		_, err = file.WriteString(fmt.Sprintf("CEP: %s, UF: %s, ddd: %s", response.Cep, response.Uf, response.Ddd))
+		if err != nil {
+			fmt.Fprintf(os.Stdout, "Error while writing file: %v", err)
+		}
+
 	}
 }
