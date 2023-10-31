@@ -6,8 +6,8 @@ import (
 )
 
 type Customer struct {
-	Id   int
-	Name string
+	Id   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 func main() {
